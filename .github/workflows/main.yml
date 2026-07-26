@@ -11,8 +11,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup MSVC Environment
+      - name: Setup MSVC Environment (x86)
         uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x86
 
       - name: Compile DLL
         run: |
