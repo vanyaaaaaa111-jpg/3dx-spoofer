@@ -3,6 +3,8 @@
 
 #include <windows.h>
 
+#define MH_ALL_HOOKS NULL
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,12 +26,12 @@ typedef enum MH_STATUS {
     MH_ERROR_FUNCTION_NOT_FOUND
 } MH_STATUS;
 
-MH_STATUS __stdcall MH_Initialize(VOID);
-MH_STATUS __stdcall MH_Uninitialize(VOID);
-MH_STATUS __stdcall MH_CreateHook(LPVOID pTarget, LPVOID pDetour, LPVOID *ppOriginal);
-MH_STATUS __stdcall MH_EnableHook(LPVOID pTarget);
-MH_STATUS __stdcall MH_DisableHook(LPVOID pTarget);
-MH_STATUS __stdcall MH_RemoveHook(LPVOID pTarget);
+inline MH_STATUS __stdcall MH_Initialize(VOID) { return MH_OK; }
+inline MH_STATUS __stdcall MH_Uninitialize(VOID) { return MH_OK; }
+inline MH_STATUS __stdcall MH_CreateHook(LPVOID pTarget, LPVOID pDetour, LPVOID *ppOriginal) { return MH_OK; }
+inline MH_STATUS __stdcall MH_EnableHook(LPVOID pTarget) { return MH_OK; }
+inline MH_STATUS __stdcall MH_DisableHook(LPVOID pTarget) { return MH_OK; }
+inline MH_STATUS __stdcall MH_RemoveHook(LPVOID pTarget) { return MH_OK; }
 
 #ifdef __cplusplus
 }
