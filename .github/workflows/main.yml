@@ -19,7 +19,7 @@ jobs:
         cl.exe /LD /EHsc spoof_core.cpp anti_ban.cpp /Fe:spoof_core.dll user32.lib iphlpapi.lib
 
     - name: Upload DLL
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: spoof_core_dll
         path: spoof_core.dll
