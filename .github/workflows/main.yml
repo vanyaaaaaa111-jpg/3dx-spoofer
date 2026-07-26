@@ -8,18 +8,18 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Setup MSVC
-      uses: microsoft/setup-msbuild@v1.1
+      - name: Setup MSVC Environment
+        uses: ilammy/msvc-dev-cmd@v1
 
-    - name: Compile DLL
-      run: |
-        cl.exe /LD /EHsc spoof_core.cpp anti_ban.cpp /Fe:spoof_core.dll user32.lib iphlpapi.lib
+      - name: Compile DLL
+        run: |
+          cl.exe /LD /EHsc spoof_core.cpp anti_ban.cpp /Fe:spoof_core.dll user32.lib iphlpapi.lib
 
-    - name: Upload DLL
-      uses: actions/upload-artifact@v4
-      with:
-        name: spoof_core_dll
-        path: spoof_core.dll
+      - name: Upload DLL
+        uses: actions/upload-artifact@v4
+        with:
+          name: spoof_core_dll
+          path: spoof_core.dll
